@@ -31,7 +31,7 @@ namespace Business.Abstract
             this._carDal = carDal;
            
         }
-        //[SecuredOperation("car.add,admin")]
+        [SecuredOperation("car.add,admin")]
         [ValidationAspect(typeof(CarValidator))]//ürün eklenmek için belirlediğimiz koşulları geçiyormu bak
         [CacheRemoveAspect("ICarService.Get")]
         public IResult Add(Car car)
@@ -116,9 +116,9 @@ namespace Business.Abstract
         
            }
 
-       // [ValidationAspect(typeof(CarValidator))]
-        //[SecuredOperation("car.add,admin")]
-        //[CacheRemoveAspect("ICarService.Get")]
+        [ValidationAspect(typeof(CarValidator))]
+        [SecuredOperation("car.add,admin")]
+        [CacheRemoveAspect("ICarService.Get")]
         public IResult Update(Car car)
         {
 

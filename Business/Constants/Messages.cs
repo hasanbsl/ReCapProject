@@ -55,5 +55,13 @@ namespace Business.Constants
         public static string UserRegistered = "Kullanıcı başarıyla kaydedildi";
         public static string AccessTokenCreated = "Access Token başarıyla oluşturuldu";
         public static string AuthorizationDenied;
+        internal static string GetErrorRentalMessage;
+
+        public static string FindeksCalculateCompleted = "Findeks puanı hesaplandı.";
+        public static string FindeksPointsSufficient = "Findeks puanı yeterli";
+        public static string FindeksPointsInsufficient = "Findeks puanı yetersiz";
+        internal static User GetErrorUserMessage;
+        internal static string GetSuccessUserMessage;
+        public static string ColorUpdate = "Renk Güncellendi";
     }
 }

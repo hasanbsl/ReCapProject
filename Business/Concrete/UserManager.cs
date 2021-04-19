@@ -24,14 +24,34 @@ namespace Business.Concrete
             return _userDal.GetClaims(user);
         }
 
-        public void Add(User user)
-        {
-            _userDal.Add(user);
-        }
-
         public User GetByMail(string email)
         {
             return _userDal.Get(u => u.Email == email);
+        }
+
+       public IDataResult<UserBasicDto> GetMail(string email)
+        {
+            User user = _userDal.Get(p => p.Email.ToLower() == email.ToLower());
+            if (user == null)
+            {
+                return new ErrorDataResult<UserBasicDto>("Başarısız");
+            }
+            else
+            {
+                return new SuccessDataResult<UserBasicDto>(new UserBasicDto { UserId = user.UserId, Email = user.Email, FirstName = user.FirstName, LastName = user.LastName }, Messages.GetSuccessUserMessage);
+            }
+        }
+
+        public IResult Add(User user)
+        {
+            _userDal.Add(user);
+            return new SuccessResult();
+        }
+
+        public IResult Update(User user)
+        {
+            _userDal.Update(user);
+            return new SuccessResult("başarılı");
         }
     }
 }

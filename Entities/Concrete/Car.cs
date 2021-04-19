@@ -19,6 +19,8 @@ namespace Entities.Concrete
 
         public string Description { get; set; }
 
+        public int FindeksScore { get; set; }
+
 
     }
 }
